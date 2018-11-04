@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class JenkinsPageTest extends BaseTest{
+public class JenkinsPageTest extends BaseTest {
 
     private JenkinsPage myJenkinsPage;
 
@@ -64,21 +64,3 @@ public class JenkinsPageTest extends BaseTest{
     }
 
 }
-
-
-
-
-
-
-
-
-
-/*
-  // style="height: 100px; width: 200px; color: skdjfh; padding: 5px"
-    String style = "This order was placed for QT3000! OK?";
-    Pattern pattern = Pattern.compile("(\\d+)");
-    Matcher matcher = pattern.matcher(style);
-    matcher.find(); //запустити 1, 2, 3, 4 рази
-    matcher.find();
-    System.out.println("group 1: " + matcher.group(1));
-*/
