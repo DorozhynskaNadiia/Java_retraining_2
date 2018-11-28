@@ -3,7 +3,9 @@ package pages;
 import org.testng.annotations.*;
 import org.testng.annotations.Test;
 
-public class JenkinsPageWithTreeNodeTest extends BaseTest{
+import java.util.List;
+
+public class JenkinsPageWithTreeNodeTest extends BaseTest {
 
     private JenkinsPageWithTreeNode myJenkinsPageWithTreeNode;
 
@@ -23,12 +25,23 @@ public class JenkinsPageWithTreeNodeTest extends BaseTest{
     }
 
     @Test
-    public void  openSuitesByTreeNode() {
-        myJenkinsPageWithTreeNode.openSuitesByTreeNode();
+    public void getSuite() {
+        JenkinsPageWithTreeNode.SuiteNode mySuite = myJenkinsPageWithTreeNode.getSuite();
+        mySuite.open();
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getFailedClasses() {
+        myJenkinsPageWithTreeNode.getSuite().open();
+            List<JenkinsPageWithTreeNode.ClassNode> myClasses = myJenkinsPageWithTreeNode.getSuite().getClasses();
+            for (JenkinsPageWithTreeNode.ClassNode classes : myClasses) {
+                classes.open();
+                System.out.println("Failed: " + classes.hasFailed());
         }
     }
 
