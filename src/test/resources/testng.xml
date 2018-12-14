@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Annotation tester" verbose="1">
+  <test name="Annotation Test">
+    <groups>
+      <run>
+        <include name="testOne" />
+        <include name="testTwo" />
+        <exclude name="testThree" />
+      </run>
+    </groups>
+    <classes>
+      <class name="pages.AnnotationTester" />
+    </classes>
+  </test>
+</suite>

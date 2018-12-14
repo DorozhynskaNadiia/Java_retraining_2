@@ -1,17 +1,10 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import org.testng.annotations.Test;
 
 
 public class AnnotationTester {
-
-    private WebDriver driver;
-
-    public AnnotationTester(WebDriver driver) {
-        this.driver = driver;
-    }
 
     @BeforeSuite
     public void beforeSuite() {
@@ -38,14 +31,19 @@ public class AnnotationTester {
         System.out.println("Before test");
     }
 
-    @Test
-    public void testOne() {
+    @Test(groups = {"testOne"})
+    public void testOne1() {
         System.out.println("Test one");
     }
 
-    @Test
-    public void testTwo() {
+    @Test(groups = {"testTwo"})
+    public void testTwo1() {
         System.out.println("Test two");
+    }
+
+    @Test (groups = {"testThree"})
+    public void testThree() {
+        System.out.println("Test three");
     }
 
     @AfterTest
@@ -75,13 +73,12 @@ public class AnnotationTester {
 }
 
 
-
-//використати всі анотації (@Before, etc) - systemout
-// + написати 2 тести
-
-//зробити 2-й клас, аналогічний цьому класу, який наслідує цей клас і в ньому те саме (всі анотації + 2 тести - systemout) - подивитися послідовність виконання
-
-//запустити спочатку тести з 2-го класу, а тоді з першого класу
-
 // почитати про assertj
 //reportNG
+
+//написати xml яка буде запускати 2 з 3-х тестів в 1 класі (include exclude)
+
+//maven surefire plugin + testng, прочитати як запускати custom testng xml через maven surefire з command line  - через mvn clean test
+
+//testng listener, виводити стрічку, коли тест стартує і закінчується (start test and end test). зробити 2 різні тести, 1 пасд, один сфейлити. в форматі
+// повний шлях до класу + ім'я метода
